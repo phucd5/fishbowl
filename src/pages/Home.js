@@ -1,8 +1,9 @@
 import React from 'react'
+import Signup from '../components/Signup'
 
 function Home() {
     return (
-        <h1>Welcome to my website!</h1>
+        <Signup />
     )
 }
 

@@ -1,7 +1,7 @@
-import firebase from 'firebase/app'
-import "firebase/auth"
-
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { useEffect, useState } from "react";
+
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -17,8 +17,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-export const auth = app.auth()
+export const auth = getAuth(app)
 
 export default app
+
+export function signup(email, password) {
+  return createUserWithEmailAndPassword(auth, email, password);
+}
+
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    return unsub;
+  }, [])
+
+  return currentUser;
+}

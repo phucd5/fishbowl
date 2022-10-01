@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>

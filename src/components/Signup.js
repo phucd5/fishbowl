@@ -1,36 +1,37 @@
-import React, {useRef} from "react"
-import { Form, Button, Card } from 'react-bootstrap'
-<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
+import React from 'react'
+import { useRef, useState } from "react"
+import { signup, useAuth } from "../firebase";
 
-export default function Signup() {
-    const emailRef =  useRef()
-    const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
+export default function SignUp() {
+
+    const [loading, setLoading] = useState(false);
+    const currentUser = useAuth();
+
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
+    async function handleSignup() {
+        setLoading(true);
+        try {
+            await signup(emailRef.current.value, passwordRef.current.value);
+        }
+        catch {
+            alert("Error!")
+        }
+        setLoading(false);
+    }
+
+
   return (
-    <>
-    <Card>
-        <Card.Body>
-            <h2 className="text-center mb-4">Sign Up</h2>
-        </Card.Body>
-        <Form>
-            <Form.Group id="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="email" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button className="w-100" type="submit">Sign Up</Button>
-        </Form>
-    </Card>
-    <div className="w-100 text-center mt-2">
-        Already have an account? Log In
+    <div className="main">
+        <div className="fields">
+            <input ref={emailRef} placeholder="Email" />
+            <input ref={passwordRef} placeholder-="Password" />
+        </div>
+
+        <div>Currently logged in as: { currentUser?.email } </div>
+
+        <button disabled={loading || currentUser} onClick={(handleSignup)}>Sign Up</button>
     </div>
-    </>
   )
 }

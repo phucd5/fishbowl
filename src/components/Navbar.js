@@ -1,11 +1,12 @@
 import React from "react";
+import logo from '../logo.png'
 
 export default function Navbar(){
     return (
     <nav className="nav">
         <a href="/" className="site-title">
-            Logo
-            </a>
+        <img className="logo"src={logo} alt="Test"/>
+        </a>
             <ul>
                 <CustomLink href="/home">Home</CustomLink>
                 <CustomLink href="/upload">Upload</CustomLink>

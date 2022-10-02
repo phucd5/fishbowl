@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
 
@@ -22,8 +22,16 @@ export const auth = getAuth(app)
 
 export default app
 
-export function signup(email, password) {
+export function signUp(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
+}
+
+export function signIn(email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logout() {
+  return signOut(auth);
 }
 
 export function useAuth() {
@@ -36,3 +44,4 @@ export function useAuth() {
 
   return currentUser;
 }
+

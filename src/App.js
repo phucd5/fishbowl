@@ -3,6 +3,7 @@ import SignUp from "./pages/SignUp"
 import Home from "./pages/Home"
 import Upload from "./pages/Upload"
 import VideoPlayer from "./pages/VideoPlayer"
+import About from "./pages/About"
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       break
     case "/signup":
       component = <SignUp />
+      break
+    case "/about":
+      component = <About />
       break
   }
   return (

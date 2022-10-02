@@ -58,3 +58,110 @@ body{
     width: 100px;
     height: 100px;
 }
+
+.sign-up-btn {
+    background-color: #6B80DB; 
+    border: 1px solid black;
+    color: white;
+    /* padding: 15px 32px; */
+    font-size: 17px;
+    width: 127px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+
+}
+
+
+.log-out-btn {
+    background-color: white; 
+    border: 1px solid black;
+    color: black;
+    /* padding: 15px 32px; */
+    font-size: 17px;
+    width: 127px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+}
+
+.input-box{
+    position: fixed;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-grow: 5px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 20px;
+}
+
+.email{
+    background-color: white; 
+    /* border: 1px solid black; */
+    color: grey;
+    /* position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    font-size: 17px;
+    width: 292px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+}
+
+
+.password{
+    background-color: white; 
+    /* border: 1px solid black; */
+    color: grey;
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    font-size: 17px;
+    width: 292px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+}
+
+.btns{
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-grow: 5px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 35px;
+}
+
+.Message{
+    font-family: Helvetica, Sans-Serif;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+.Title{
+    font-family: Helvetica, Sans-Serif;
+    font-size: 30px;
+    font-weight: bold;
+    position: static;
+    transform: translate(-42%, -5%);
+    margin-top: 20px;
+}
+
+.Content{
+    font-family: Helvetica, Sans-Serif;
+    font-size: 17px;
+    position: static;
+    transform: translate(1%, 2%);
+    text-align: left;
+    line-height: 25px;
+    width: 95%;
+}

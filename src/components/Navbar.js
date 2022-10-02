@@ -12,6 +12,7 @@ export default function Navbar(){
                 <CustomLink href="/upload">Upload</CustomLink>
                 <CustomLink href="/videos">Videos</CustomLink>
                 <CustomLink href="/signup">Sign Up</CustomLink>
+                <CustomLink href="/about">About</CustomLink>
         </ul>
     </nav>
     )

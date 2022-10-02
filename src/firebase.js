@@ -1,8 +1,8 @@
-import firebase from 'firebase/app'
-import "firebase/auth"
-
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
-import {getStorage} from "firebase/storage";
+import { useEffect, useState } from "react";
+
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -17,10 +17,31 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-export const storage = getStorage(app)
 
-export const auth = app.auth()
-
+export const auth = getAuth(app)
 
 export default app
+
+export function signUp(email, password) {
+  return createUserWithEmailAndPassword(auth, email, password);
+}
+
+export function signIn(email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function logout() {
+  return signOut(auth);
+}
+
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    return unsub;
+  }, [])
+
+  return currentUser;
+}
+

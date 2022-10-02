@@ -17,21 +17,21 @@ function Upload() {
         if (videoUpload == null)  {
             return;
         }
-        const videoRef = ref(storage, `video/${videoUpload}${currentUser.uid} `)
+        const videoRef = ref(storage, `video/${videoUpload} `)
         uploadBytes(videoRef, videoUpload).then(() => {
-            console.log("Image uploaded")
+            alert("Video uploaded")
         })
     }
 
-    // useEffect(() => {
-    //     listAll(videoListRef).then((response) => {
-    //         response.items.forEach((item) => {
-    //             getDownloadURL(item).then((url) => {
-    //                 setVideoList((prev) => [...prev, url]);
-    //             })
-    //         })
-    //     })
-    // }, [])
+    useEffect(() => {
+        listAll(videoListRef).then((response) => {
+            response.items.forEach((item) => {
+                getDownloadURL(item).then((url) => {
+                    setVideoList((prev) => [...prev, url]);
+                })
+            })
+        })
+    }, [])
 
     return (
         <div>
@@ -48,9 +48,6 @@ function Upload() {
                 <div className="boxwrapper3">
                     <a href='/home'><button className='otherButs'>Cancel</button></a>
                     <button id='submitBut' onClick={uploadVideo}>Upload Video</button>
-                    {videoList.map((url) => {
-                    return <img src={url} />
-                    })}
                     <label className='choose'>
                         Select file
                     <input type="file" id='chooseBut'  onChange={(e) => {

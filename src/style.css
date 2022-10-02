@@ -63,7 +63,6 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: #f5f5f5;
     height: 95vh;
     width: 100%;
 }
@@ -80,7 +79,6 @@ body{
 .boxwrapper2 {
     display: flex;
     flex-direction: column;
-    background-color: #f5f5f5;
     height: 58%;
     width: 527px;
 }
@@ -88,9 +86,10 @@ body{
 .boxwrapper3{
     display: flex;
     justify-content: center;
+    margin-right: 5%;
     align-items: right;
     flex-direction: row;
-    background-color: #f5f5f5;
+    margin-top: 4%;
 }
 
 #box2 {
@@ -110,9 +109,11 @@ input {
     width: 100%;
     height: 100%;
     border-radius: 5px;
+    border:2px solid #ccc;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 35px;
     padding: 12px 20px;
+    background-color: #f8f8f8;
 }
 
 textarea {
@@ -127,3 +128,86 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
   }
+
+  #submitBut {
+    background-color: #6B80DB; 
+    border: 1px solid black;
+    color: white;
+    /* padding: 15px 32px; */
+    font-size: 17px;
+    width: 127px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+
+} 
+
+.otherButs {
+    background-color: white; 
+    border: 1px solid black;
+    color: black;
+    margin-right: 2%;
+    margin-left: 3%;
+    font-size: 17px;
+    width: 127px;
+    height: 40px;
+    border-radius: 5px;
+    bottom: 15px
+}
+
+.bulletcap {
+    display:initial;
+    transition: 5s;
+    animation: fadeOut ease 8s;
+    -webkit-animation: fadeOut ease 8s;
+    -moz-animation: fadeOut ease 8s;
+    -o-animation: fadeOut ease 8s;
+    -ms-animation: fadeOut ease 8s;
+    /* display:none; */
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+
+    
+  }
+}

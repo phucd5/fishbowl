@@ -9,6 +9,8 @@ function VideoPlayer() {
 
     const videoListRef = ref(storage, "video/")
     const[videoList, setVideoList] = useState([]);
+    const[xprediction, setxprediction] = useState(0);
+    const[yprediction, setyprediction] = useState(0);
     
     useEffect(() => {
         listAll(videoListRef).then((response) => {
@@ -20,10 +22,24 @@ function VideoPlayer() {
         })
     }, [])
 
+    useEffect(() => {
+        const webgazer=window.webgazer
+        webgazer.setGazeListener(function(data, elapsedTime) {
+            if (data == null) {
+                return;
+            }
+            setxprediction(data.x)
+            setyprediction(data.y)
+            console.log(data.x, data.y);
+        }).begin();
+    
+    });
+
+
     return (
-        <div className="video-player">
-             <video className="video-watch" width="1440" height="1040" controls="controls"><source src={videoList[0]} type="video/mp4" /></video>
-        </div>
+        (yprediction < 600 ?  <div>Paused...</div> : <div className="video-player">
+        <video className="video-watch" width="1440" height="1040" controls="controls"><source src={videoList[0]} type="video/mp4" /></video>
+   </div> )
     )
 }
 

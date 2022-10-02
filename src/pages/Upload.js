@@ -5,7 +5,6 @@ import{ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage"
 import { useAuth } from "../firebase";
 
 
-
 function Upload() {
 
     const videoListRef = ref(storage, "video/")
@@ -32,7 +31,6 @@ function Upload() {
             })
         })
     }, [])
-
     return (
         <div>
             <div class="boxwrapper">

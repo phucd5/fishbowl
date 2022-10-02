@@ -4,9 +4,11 @@ import Home from "./pages/Home"
 import Upload from "./pages/Upload"
 import VideoPlayer from "./pages/VideoPlayer"
 import About from "./pages/About"
-
+import { useEffect } from "react"
 
 function App() {
+
+
   let component 
   switch (window.location.pathname){
     case "/":

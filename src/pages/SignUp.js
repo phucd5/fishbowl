@@ -10,13 +10,16 @@ export default function SignUp() {
     const emailRef = useRef();
     const passwordRef = useRef();
 
+    
+
+
     async function handleSignup() {
         setLoading(true);
         try {
             await signUp(emailRef.current.value, passwordRef.current.value);
         }
         catch {
-            alert("Error!")
+            alert("You already signed up. Please fill in your email and password!")
         }
         setLoading(false);
         emailRef.current.value = ""
@@ -29,7 +32,7 @@ export default function SignUp() {
             await signIn(emailRef.current.value, passwordRef.current.value);
         }
         catch {
-            alert("Error!")
+            alert("Please fill in your email and password!")
         }
         emailRef.current.value = ""
         passwordRef.current.value = ""
@@ -52,14 +55,27 @@ export default function SignUp() {
 
   return (
     <div className="main">
-        <div className="fields">
-            <input ref={emailRef} placeholder="Email" required/>
-            <input type="password" ref={passwordRef} placeholder-="Password" required/>
+        
+        
+        <div className = 'Message'>Currently logged in as: { currentUser?.email } </div>
+        <div >
+            {!currentUser && 
+            <div className = 'temp'>
+            <div className = 'input-box'>
+            <div className="email-ctn">
+                <input className='email' ref={emailRef} placeholder="Email" required/>
+            </div>
+            <div className="password-ctn">
+                <input className='password' type="password" ref={passwordRef} placeholder="Password" required/>
+            </div>
+            </div>
+            <div className = 'btns'>
+                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleSignup)}>Sign Up</button>
+                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleLogin)}>Sign In</button> 
+                </div></div>}
+        {currentUser && <div className = 'btns'><button className= "log-out-btn" disabled={loading} onClick={handleLogout}>Log Out</button></div> }
+        
         </div>
-        <div>Currently logged in as: { currentUser?.email } </div>
-        <button disabled={loading || currentUser} onClick={(handleSignup)}>Sign Up</button>
-        <button disabled={loading || currentUser} onClick={(handleLogin)}>Sign In</button>
-        <button disabled={loading} onClick={handleLogout}>Log Out</button>
     </div>
 
 

@@ -8,10 +8,11 @@ export default function Navbar(){
         <img className="logo"src={logo} alt="Test"/>
         </a>
             <ul>
-                <CustomLink href="/home">Home</CustomLink>
+               
                 <CustomLink href="/upload">Upload</CustomLink>
                 <CustomLink href="/videos">Videos</CustomLink>
                 <CustomLink href="/signup">Sign Up</CustomLink>
+                <CustomLink href="/about">About</CustomLink>
         </ul>
     </nav>
     )

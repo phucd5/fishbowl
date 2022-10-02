@@ -292,6 +292,7 @@ textarea {
     text-align: left;
     line-height: 25px;
     width: 95%;
+}
 .bulletcap {
     display:initial;
     transition: 5s;
@@ -347,4 +348,13 @@ textarea {
 
     
   }
+}
+
+.video-player {
+  height: 100%;
+}
+
+.video-watch {
+  height: 100%;
+  margin-bottom: 90px;
 }

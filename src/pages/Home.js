@@ -1,9 +1,12 @@
 import React from 'react'
+import logo from '../logo.png'
 
 function Home() {
     return (
-        <div>Hello World</div>
+
+        <div className="title">Fishbowl</div>
     )
+
 }
 
 export default Home;

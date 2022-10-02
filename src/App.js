@@ -1,14 +1,8 @@
-
-// import Home from './pages/Home'
-// import Upload from './pages/Upload.js'
-// import VideoPlayer from './pages/VideoPlayer';
-// import { Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar"
-import Lectures from "./pages2/Lectures"
-import About from "./pages2/About"
-import Home from "./pages2/Home"
-import Schedules from "./pages2/Schedules"
-import SignUp from "./pages2/SignUp"
+import SignUp from "./pages/SignUp"
+import Home from "./pages/Home"
+import Upload from "./pages/Upload"
+import VideoPlayer from "./pages/VideoPlayer"
 
 
 function App() {
@@ -17,32 +11,26 @@ function App() {
     case "/":
       component = <Home />
       break
-      case "/Lectures":
-        component = <Lectures />
-        break
-        case "/about":
-          component = <About />
-        break
-        case "/schedules":
-          component = <Schedules />
-        break
-        case "/SignUp":
-          component = <SignUp />
+    case "/home":
+      component = <Home />
+      break
+    case "/upload":
+      component = <Upload />
+      break
+    case "/videos":
+      component = <VideoPlayer />
+      break
+    case "/signup":
+      component = <SignUp />
+      break
   }
   return (
-  <>
+  <div>
   <Navbar />
   <div className="container">{component}</div>
-  </>
+  </div>
   )
-      // <Routes>
-      //   <Route path="/" element={<Home />}/>
-      //   <Route path='/upload' element={<Upload/>} />
-      //   <Route path ='/video' element={<VideoPlayer />} />
-      // </Routes>
-
-
-
+   
 }
 
 export default App

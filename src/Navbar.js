@@ -1,18 +1,15 @@
 import React from "react";
 
-
-
 export default function Navbar(){
-    const path = window.location.pathname
     return (
     <nav className="nav">
         <a href="/" className="site-title">
             Logo
             </a>
             <ul>
-                <CustomLink href="/lectures">Lectures</CustomLink>
-                <CustomLink href="/about">About</CustomLink>
-                <CustomLink href="/schedules">Schedules</CustomLink>
+                <CustomLink href="/home">Home</CustomLink>
+                <CustomLink href="/upload">Upload</CustomLink>
+                <CustomLink href="/videos">Videos</CustomLink>
                 <CustomLink href="/signup">Sign Up</CustomLink>
         </ul>
     </nav>

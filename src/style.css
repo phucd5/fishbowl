@@ -44,13 +44,6 @@ body{
   padding: .25rem;
 }
 
-.nav li.active{
-  background-color: #555;
-}
-
-.nav li:hover{
-  background-color: #777;
-}
 
 .logo {
   max-width: 60px;
@@ -291,4 +284,45 @@ h2 {
   font-weight: bold;
   text-align: center;
   margin-top: 20%;
+}
+
+.nav li{
+  --h: 1.2em;
+
+  line-height: 1.2em;
+  color: #0000;
+  text-shadow: 
+      0 0 #000, 
+      0 1.2em #0000;
+      ;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.nav li{
+  --h: 1.2em;
+
+  line-height: 1.2em;
+  color: #0000;
+  text-shadow: 
+      0 0 #000, 
+      0 1.2em #0000;
+      ;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.nav li.active{
+  color: #6B80DB;
+  /* background-color: #555; */
+}
+
+.nav li:hover{
+  /* background-color: #777;
+  height: 50px;
+  width: 100px; */
+  text-shadow: 
+  0 -1.2em #0000,
+  0 0 #6B80DB;
+  
 }

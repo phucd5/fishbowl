@@ -1,9 +1,17 @@
 import React from 'react'
 
+
 function Upload() {
+
+
+
+
     return (
-        <h1>Upload</h1>
-    )
+        <div>
+            Hello
+        </div>
+        );
+
 }
 
 export default Upload;

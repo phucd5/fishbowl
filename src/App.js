@@ -25,10 +25,10 @@ function App() {
       break
   }
   return (
-  <div>
-  <Navbar />
-  <div className="container">{component}</div>
-  </div>
+    <div>
+    <Navbar />
+    <div className="container">{component}</div>
+    </div>
   )
    
 }

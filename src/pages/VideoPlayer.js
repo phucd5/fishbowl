@@ -9,7 +9,6 @@ function VideoPlayer() {
 
     const videoListRef = ref(storage, "video/")
     const[videoList, setVideoList] = useState([]);
-    const[xprediction, setxprediction] = useState(0);
     const[yprediction, setyprediction] = useState(0);
     
     useEffect(() => {
@@ -28,16 +27,14 @@ function VideoPlayer() {
             if (data == null) {
                 return;
             }
-            setxprediction(data.x)
             setyprediction(data.y)
             console.log(data.x, data.y);
         }).begin();
     
     });
 
-
     return (
-        (yprediction < 600 ?  <div>Paused...</div> : <div className="video-player">
+        (yprediction < 450 ?  <div>Paused...</div> : <div className="video-player">
         <video className="video-watch" width="1440" height="1040" controls="controls"><source src={videoList[0]} type="video/mp4" /></video>
    </div> )
     )

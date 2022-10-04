@@ -3,9 +3,6 @@ import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
 import { getStorage } from 'firebase/storage'
 
-
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBPx5RnQatiEEej6GZDiTMSUx0_Wb1drQ0",
   authDomain: "fishbowl-e0feb.firebaseapp.com",
@@ -16,14 +13,11 @@ const firebaseConfig = {
   measurementId: "G-3Y28N41YHH"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app)
 
 export const storage = getStorage(app)
-
-export default app
 
 export function signUp(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -33,18 +27,19 @@ export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-export function logout() {
+export function signOutAuth() {
   return signOut(auth);
 }
 
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
-
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
-    return unsub;
+    const unsubscribe = onAuthStateChanged(auth, user => setCurrentUser(user));
+    return unsubscribe;
   }, [])
 
   return currentUser;
 }
 
+
+export default app

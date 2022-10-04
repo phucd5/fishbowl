@@ -9,31 +9,31 @@ import { useEffect } from "react"
 function App() {
 
 
-  let component 
+  let navLinks;
   switch (window.location.pathname){
     case "/":
-      component = <Home />
+      navLinks = <Home />
       break
     case "/home":
-      component = <Home />
+      navLinks = <Home />
       break
     case "/upload":
-      component = <Upload />
+      navLinks = <Upload />
       break
     case "/videos":
-      component = <VideoPlayer />
+      navLinks = <VideoPlayer />
       break
     case "/signup":
-      component = <SignUp />
+      navLinks = <SignUp />
       break
     case "/about":
-      component = <About />
+      navLinks = <About />
       break
   }
   return (
     <div>
     <Navbar />
-    <div className="container">{component}</div>
+    <div className=".nav-container">{navLinks}</div>
     </div>
   )
    

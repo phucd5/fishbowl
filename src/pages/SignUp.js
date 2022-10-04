@@ -1,79 +1,73 @@
+import { signOut } from 'firebase/auth';
 import React from 'react'
 import { useRef, useState } from "react"
-import { signUp, signIn, logout, useAuth } from "../firebase";
+import { signUp, signIn, signOutAuth, useAuth } from "../firebase";
 
 export default function SignUp() {
 
     const [loading, setLoading] = useState(false);
     const currentUser = useAuth();
 
-    const emailRef = useRef();
-    const passwordRef = useRef();
+    const emailReference = useRef();
+    const passwordReference = useRef();
 
-    
-
-
-    async function handleSignup() {
+    async function handleSignUp() {
         setLoading(true);
         try {
-            await signUp(emailRef.current.value, passwordRef.current.value);
+            await signUp(emailReference.current.value, passwordReference.current.value);
         }
         catch {
-            alert("You already signed up. Please fill in your email and password!")
+            alert("The email is already assoicated with an account. Please login instead.")
         }
         setLoading(false);
-        emailRef.current.value = ""
-        passwordRef.current.value = ""
+        emailReference.current.value = ""
+        passwordReference.current.value = ""
     }
 
-    async function handleLogin() {
+    async function handleLogIn() {
         setLoading(true);
         try {
-            await signIn(emailRef.current.value, passwordRef.current.value);
+            await signIn(emailReference.current.value, passwordReference.current.value);
         }
         catch {
-            alert("Please fill in your email and password!")
+            alert("Please enter an email and password.")
         }
-        emailRef.current.value = ""
-        passwordRef.current.value = ""
+        emailReference.current.value = ""
+        passwordReference.current.value = ""
         setLoading(false);
     }
 
-    async function handleLogout() {
+    async function handleSignOut() {
         setLoading(true)
         try {
-            logout();
+            signOutAuth();
         }
         catch {
-            alert("Error!")
+            alert("You are not logged in!")
         }
         setLoading(false)
 
     }
 
-
-
   return (
     <div className="main">
-        
-        
         <div className = 'Message'>Currently logged in as: { currentUser?.email } </div>
         <div >
             {!currentUser && 
             <div className = 'temp'>
             <div className = 'input-box'>
             <div className="email-ctn">
-                <input className='email' ref={emailRef} placeholder="Email" required/>
+                <input className='email' ref={emailReference} placeholder="Email" required/>
             </div>
             <div className="password-ctn">
-                <input className='password' type="password" ref={passwordRef} placeholder="Password" required/>
+                <input className='password' type="password" ref={passwordReference} placeholder="Password" required/>
             </div>
             </div>
             <div className = 'btns'>
-                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleSignup)}>Sign Up</button>
-                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleLogin)}>Sign In</button> 
+                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleSignUp)}>Sign Up</button>
+                <button className="sign-up-btn" disabled={loading || currentUser} onClick={(handleLogIn)}>Sign In</button> 
                 </div></div>}
-        {currentUser && <div className = 'btns'><button className= "log-out-btn" disabled={loading} onClick={handleLogout}>Log Out</button></div> }
+        {currentUser && <div className = 'btns'><button className= "log-out-btn" disabled={loading} onClick={handleSignOut}>Log Out</button></div> }
         
         </div>
     </div>

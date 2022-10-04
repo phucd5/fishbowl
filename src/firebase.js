@@ -1,7 +1,13 @@
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
-import { getStorage } from 'firebase/storage'
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPx5RnQatiEEej6GZDiTMSUx0_Wb1drQ0",
@@ -10,14 +16,14 @@ const firebaseConfig = {
   storageBucket: "fishbowl-e0feb.appspot.com",
   messagingSenderId: "534973262054",
   appId: "1:534973262054:web:693d6cf530b8457889b327",
-  measurementId: "G-3Y28N41YHH"
+  measurementId: "G-3Y28N41YHH",
 };
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
+export const auth = getAuth(app);
 
-export const storage = getStorage(app)
+export const storage = getStorage(app);
 
 export function signUp(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -34,12 +40,13 @@ export function signOutAuth() {
 export function useAuth() {
   const [currentUser, setCurrentUser] = useState();
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => setCurrentUser(user));
+    const unsubscribe = onAuthStateChanged(auth, (user) =>
+      setCurrentUser(user)
+    );
     return unsubscribe;
-  }, [])
+  }, []);
 
   return currentUser;
 }
 
-
-export default app
+export default app;

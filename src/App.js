@@ -4,10 +4,9 @@ import Home from "./pages/Home"
 import Upload from "./pages/Upload"
 import VideoPlayer from "./pages/VideoPlayer"
 import About from "./pages/About"
-import { useEffect } from "react"
+import { useEffect, useState} from "react"
 
 function App() {
-
 
   let navLinks;
   switch (window.location.pathname){

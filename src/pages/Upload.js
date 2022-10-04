@@ -47,11 +47,12 @@ function Upload() {
                 <div className="boxwrapper3">
                     <a href='/home'><button className='otherButs'>Cancel</button></a>
                     <button id='submitBut' onClick={uploadVideo}>Upload Video</button>
-                    <label className='choose'>
+                    <label id='chooseBut'>
                         Select File
-                    <input type="file" id='chooseBut'  onChange={(vid) => {
+                    <input type="file" id='chooseBut' onChange={(vid) => {
                         setVideoUpload(vid.target.files[0])}} />
                     </label>
+
                 </div>
                 </div>
                 

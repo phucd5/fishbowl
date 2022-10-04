@@ -1,4 +1,4 @@
-import { signOut } from 'firebase/auth';
+
 import React from 'react'
 import { useRef, useState } from "react"
 import { signUp, signIn, signOutAuth, useAuth } from "../firebase";
@@ -51,16 +51,16 @@ export default function SignUp() {
 
   return (
     <div className="main">
-        <div className = 'Message'>Currently logged in as: { currentUser?.email } </div>
+        <div className = 'message'>Logged in: { currentUser?.email } </div>
         <div >
             {!currentUser && 
             <div className = 'temp'>
             <div className = 'input-box'>
             <div className="email-ctn">
-                <input className='email' ref={emailReference} placeholder="Email" required/>
+                <input className='email-box' ref={emailReference} placeholder="Email" required/>
             </div>
             <div className="password-ctn">
-                <input className='password' type="password" ref={passwordReference} placeholder="Password" required/>
+                <input className='password-box' type="password" ref={passwordReference} placeholder="Password" required/>
             </div>
             </div>
             <div className = 'btns'>
